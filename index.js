@@ -18,6 +18,7 @@ const corsOptions = {
     origin: `${process.env.CORS_ORIGIN}`,
     credentials: true, // This is important for cookies
   };
+  console.log(corsOptions)
 
 app.use(bodyParser.urlencoded({ extended: true }));
 mongo()
