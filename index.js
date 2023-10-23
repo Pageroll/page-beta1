@@ -54,8 +54,8 @@ app.post('/form', async (req,res) => {
         token = await checkRoll.generateAuthToken(3600*5) ; 
         console.log(token) ;
        res.cookie("jwt",token,{
-        maxAge:3600000*5,
-        secure:true,
+        // maxAge:3600000*5,
+        // secure:true,
         sameSite:'none',
            
         })
