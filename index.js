@@ -71,7 +71,7 @@ app.post('/form', async (req,res) => {
      token = await checkRoll1.generateAuthToken1() ; 
      console.log(token) ;
     res.cookie("jwt",token,{
-        
+        sameSite:'none',
         
      })
     }
