@@ -7,7 +7,7 @@ const auth = async (req, res, next) => {
     try {
         console.log("auth reached");
         const token = await req.cookies.jwt
-        const verifyUser = jwt.verify(token, process.env.SECRET_KEY);
+        const verifyUser = jwt.verify(token, `${process.env.SECRET_KEY}`);
         console.log(verifyUser);
         console.log("SECRET_KEY:", process.env.SECRET_KEY)
         const user = await userSchema.findOne({ _id: verifyUser._id, "tokens.token": token });
