@@ -51,10 +51,12 @@ app.post('/form', async (req,res) => {
         //console.log(checkRoll)
        if(checkRoll){
         if(checkRoll.DOB===dob){
-        token = await checkRoll.generateAuthToken() ; 
+        token = await checkRoll.generateAuthToken(3600*5) ; 
         console.log(token) ;
        res.cookie("jwt",token,{
-           
+        maxAge:3600000*5,
+        secure:true,
+        sameSite:'none',
            
         })
        }
