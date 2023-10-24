@@ -120,6 +120,7 @@ app.get('/logout',(req,res)=>{
     console.log("fetched logout")
     res.clearCookie('jwt','',{
         path: '/',
+        sameSite: 'none',
         overwrite: true,
     });
     res.status(200).send('User Logout');
