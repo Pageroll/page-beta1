@@ -46,7 +46,10 @@ app.post('/form', async (req,res) => {
         // console.log(checkName1.id)
         console.log(rollNo)
         if (!rollNo || !dob) {
-           return res.json("notexist")
+            const response = {
+                auth: "notexist"
+            }
+            return res.json(response)
          }  
         const checkRoll = await usersSchema.findOne({ RollNo: rollNo }, {})
         //console.log(checkRoll)
@@ -62,7 +65,10 @@ app.post('/form', async (req,res) => {
        }
     }
     else if (!rollNo || !dob) {
-        return res.json("notexist")
+        const response = {
+            auth: "notexist"
+        }
+        return res.json(response)
       }  
      const checkRoll1 = await user2022.findOne({ RollNo: rollNo }, {})
      //console.log(checkRoll)
@@ -102,7 +108,10 @@ app.post('/form', async (req,res) => {
             res.json(response) ; 
         }
        else{
-        return res.json("notexist")
+        const response = {
+            auth: "notexist"
+        }
+        return res.json(response)
        }
         }
        
