@@ -12,6 +12,7 @@ const app = express()
 const PORT = process.env.PORT || 4000;
 const router = require("./Routes/FormData.js")
 const cookieParser = require('cookie-parser')
+const path = require('path')
 
 
 const corsOptions = {
@@ -114,6 +115,13 @@ app.post('/form', async (req,res) => {
 app.get('/',auth, (req, res) => {
     res.send(req.user)
     console.log(req.user) ;
+})
+
+app.get('/logout',(req,res)=>{
+    console.log("fetched logout")
+    res.clearCookie('jwt',{path:'/'});
+    res.status(200).send('User Logout') ; 
+    
 })
 
 app.listen(PORT, () => {
