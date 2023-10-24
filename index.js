@@ -129,7 +129,8 @@ app.post('/form', async (req, res) => {
 })
 
 app.get('/', auth, (req, res) => {
-    res.send(req.user)
+    // res.send(req.user)
+    res.send("h")
     // console.log(req.user) ;
 })
 
