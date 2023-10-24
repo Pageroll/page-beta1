@@ -118,7 +118,7 @@ app.get('/',auth, (req, res) => {
 
 app.get('/logout',(req,res)=>{
     console.log("fetched logout")
-    res.clearCookie('jwt',token,{
+    res.clearCookie("jwt",{
         path: '/',
         secure: true,
         sameSite: 'none',
