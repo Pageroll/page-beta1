@@ -119,8 +119,7 @@ app.get('/',auth, (req, res) => {
 app.get('/logout',(req,res)=>{
     console.log("fetched logout")
     res.clearCookie('jwt','',{
-        domain:'pg8.onrender.com',
-        path: '/form',
+        path: '/',
         overwrite: true,
     });
     res.status(200).send('User Logout');
