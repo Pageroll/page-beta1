@@ -55,7 +55,6 @@ app.post('/form', async (req,res) => {
         token = await checkRoll.generateAuthToken() ; 
         console.log(token) ;
        res.cookie("jwt",token,{
-        
         secure:true,
         sameSite:'none',
            
@@ -119,8 +118,11 @@ app.get('/',auth, (req, res) => {
 
 app.get('/logout',(req,res)=>{
     console.log("fetched logout")
-    res.clearCookie('jwt',{path:'/'});
-    res.status(200).send('User Logout') ; 
+    res.clearCookie('jwt','',{
+        domain:'https://celadon-praline-f11594.netlify.app/',
+        overwrite: true,
+    });
+    res.status(200).send('User Logout');
     
 })
 
