@@ -134,6 +134,16 @@ app.get('/', auth, (req, res) => {
     // console.log(req.user) ;
 })
 
+app.get('/check', (req, res)=>{
+    console.log("server running");
+    const check = {
+        msg: "server up-to-date"
+    }
+    res.json(check)
+})
+
+
+
 app.get('/logout', (req, res) => {
     console.log("fetched logout")
     res.clearCookie("jwt", {
