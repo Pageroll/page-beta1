@@ -5,7 +5,6 @@ const jwt = require('jsonwebtoken')
 const user2022 = require('../Models/User.js')
 const auth = async (req, res, next) => {
     try {
-        console.log("SECRET_KEY:", `${process.env.SECRET_KEY}`)
         console.log("auth reached");
         const token = await req.cookies.jwt
         const verifyUser = jwt.verify(token, `${process.env.SECRET_KEY}`);
