@@ -40,5 +40,5 @@ UserSchema1.methods.generateAuthToken1=async function(){
         console.log(error) ; 
     }
 }
-module.exports = mongoose.model("2022-Batch", UserSchema1)
+module.exports = mongoose.model("2022-Batc", UserSchema1)
 
