@@ -20,6 +20,8 @@ const corsOptions = {
     credentials: true, // This is important for cookies
     methods: ["GET", "POST", "DELETE"],
 };
+
+var countLoggedIn = 0;
 console.log(corsOptions)
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -84,6 +86,8 @@ app.post('/form', async (req, res) => {
         }
         if (checkRoll) {
             if (checkRoll.DOB === dob) {
+                countLoggedIn += 1;
+                console.log("No of user came:", countLoggedIn)
                 const response = {
                     auth: "exist",
                     username: checkRoll.Name,

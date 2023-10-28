@@ -3,9 +3,12 @@ const dotenv = require('dotenv');
 dotenv.config();
 const jwt = require('jsonwebtoken')
 const user2022 = require('../Models/User.js')
+
+var Count = 0;
 const auth = async (req, res, next) => {
     try {
-        console.log("auth reached");
+        Count += 1;
+        console.log("auth reached :", Count);
         const token = await req.cookies.jwt
         const verifyUser = jwt.verify(token, `${process.env.SECRET_KEY}`);
         console.log(verifyUser);
